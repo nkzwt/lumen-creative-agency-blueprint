@@ -1,15 +1,21 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ArrowRight, Code, Palette, Zap, Globe, Layers, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useUIStore } from '@/lib/store';
 import { Section } from '@/components/ui/section';
-import { Card, CardContent } from '@/components/ui/card';
 export function HomePage() {
   const openQuoteModal = useUIStore((s) => s.openQuoteModal);
-  const heroVariants = {
+  const heroVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.8, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    }
   };
   const services = [
     { title: 'Brand Identity', icon: Palette, desc: 'Visual storytelling that resonates.' },
@@ -21,7 +27,7 @@ export function HomePage() {
       {/* Hero Section */}
       <Section className="relative min-h-[85vh] flex items-center pt-32 lg:pt-48">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/20 blur-[120px] -z-10 rounded-full" />
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={heroVariants}
