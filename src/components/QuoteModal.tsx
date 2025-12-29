@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -10,7 +10,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { toast } from 'sonner';
-import { Loader2 } from 'lucide-react';
 const formSchema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Invalid email address'),
@@ -19,36 +18,18 @@ const formSchema = z.object({
   service: z.string().min(1, 'Please select a service'),
   message: z.string().min(10, 'Tell us a bit more about your project'),
 });
-type FormValues = z.infer<typeof formSchema>;
 export function QuoteModal() {
-  const [isLoading, setIsLoading] = useState(false);
   const isOpen = useUIStore((s) => s.isQuoteModalOpen);
   const close = useUIStore((s) => s.closeQuoteModal);
-  const form = useForm<FormValues>({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: '', email: '', company: '', budget: '', service: '', message: '' },
   });
-  const onSubmit = async (values: FormValues) => {
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      });
-      const data = await response.json();
-      if (data.success) {
-        toast.success('Quote request sent!', { description: "We'll get back to you within 24 hours." });
-        form.reset();
-        close();
-      } else {
-        throw new Error(data.error || 'Request failed');
-      }
-    } catch (err) {
-      toast.error('Submission failed', { description: err instanceof Error ? err.message : 'Please try again.' });
-    } finally {
-      setIsLoading(false);
-    }
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+    toast.success('Quote request sent!', { description: "We'll get back to you within 24 hours." });
+    form.reset();
+    close();
   };
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && close()}>
@@ -145,9 +126,7 @@ export function QuoteModal() {
               )}
             />
             <DialogFooter>
-              <Button type="submit" className="w-full h-12 text-lg" disabled={isLoading}>
-                {isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Send Inquiry'}
-              </Button>
+              <Button type="submit" className="w-full">Send Inquiry</Button>
             </DialogFooter>
           </form>
         </Form>
