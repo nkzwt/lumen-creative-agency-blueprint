@@ -84,3 +84,67 @@ export const CORE_VALUES = [
     icon: Shield
   }
 ];
+export const PROJECTS = [
+  {
+    id: 'p1',
+    slug: 'nexus-finance',
+    title: 'Nexus Finance',
+    category: 'Web',
+    client: 'Nexus Global',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=600',
+    description: 'A revolutionary fintech dashboard focusing on clarity and real-time data visualization.'
+  },
+  {
+    id: 'p2',
+    slug: 'aura-skincare',
+    title: 'Aura Skincare',
+    category: 'Branding',
+    client: 'Aura Labs',
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800&h=600',
+    description: 'Minimalist brand identity for a premium sustainable skincare line.'
+  },
+  {
+    id: 'p3',
+    slug: 'vortex-app',
+    title: 'Vortex App',
+    category: 'Design',
+    client: 'Vortex Tech',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800&h=600',
+    description: 'A high-fidelity prototype for a next-gen social interaction platform.'
+  },
+  {
+    id: 'p4',
+    slug: 'lumina-real-estate',
+    title: 'Lumina Real Estate',
+    category: 'Web',
+    client: 'Lumina Group',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800&h=600',
+    description: 'Hyper-fast property search engine with immersive virtual tours.'
+  }
+];
+export const BLOG_POSTS = [
+  {
+    id: 'b1',
+    slug: 'minimalism-in-modern-web',
+    title: 'The Power of Minimalism in Modern Web Design',
+    excerpt: 'Why less is almost always more when it comes to user conversion and brand trust.',
+    content: 'Minimalism is not just about white space. It is about reducing the noise so the message can be heard. In this article, we explore the psychological impact of clean layouts and how they lead to better user retention...',
+    author: TEAM_MEMBERS[0],
+    date: 'May 12, 2024',
+    readingTime: '5 min read',
+    category: 'Design',
+    image: 'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1200&h=600'
+  },
+  {
+    id: 'b2',
+    slug: 'future-of-distributed-systems',
+    title: 'The Future of Distributed Systems at the Edge',
+    excerpt: 'How Cloudflare Workers and Durable Objects are changing the way we think about state.',
+    content: 'Latency is the enemy of experience. By moving logic to the edge, we can provide near-instant interactions regardless of user location...',
+    author: TEAM_MEMBERS[1],
+    date: 'June 05, 2024',
+    readingTime: '8 min read',
+    category: 'Technology',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200&h=600'
+  }
+];
