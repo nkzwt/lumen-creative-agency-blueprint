@@ -1,6 +1,6 @@
 # Cloudflare Workers Full-Stack Chat Demo
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/nkzwt/lumen-creative-agency-blueprint)
 
 A production-ready full-stack chat application built on Cloudflare Workers, featuring a React frontend with shadcn/ui and a Durable Objects backend for multi-tenant entity storage (Users, Chats, Messages). Demonstrates scalable, stateful serverless architecture with pagination, CRUD operations, and real-time-like messaging.
 
@@ -101,7 +101,7 @@ bun deploy      # Builds + deploys (frontend assets + worker)
 
 **Custom Domain**: Edit `wrangler.jsonc` and run `wrangler deploy`.
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/nkzwt/lumen-creative-agency-blueprint)
 
 Access your live app at `https://<worker-name>.<account>.workers.dev`.
 
